@@ -1,0 +1,566 @@
+{
+  "python": [
+    {
+      "id": "py1",
+      "difficulty": "Easy",
+      "question": "Which Python type is immutable?",
+      "options": [
+        "dictionary",
+        "set",
+        "list",
+        "tuple"
+      ],
+      "answer": "tuple",
+      "explanation": "A tuple cannot be changed after it is created; lists, dictionaries, and sets are mutable."
+    },
+    {
+      "id": "py2",
+      "difficulty": "Easy",
+      "question": "Which keyword defines a function in Python?",
+      "options": [
+        "func",
+        "def",
+        "function",
+        "lambda"
+      ],
+      "answer": "def",
+      "explanation": "The def keyword begins a standard named function definition."
+    },
+    {
+      "id": "py3",
+      "difficulty": "Easy",
+      "question": "What is the result of len('quiz')?",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "Error"
+      ],
+      "answer": "4",
+      "explanation": "The string contains four characters."
+    },
+    {
+      "id": "py4",
+      "difficulty": "Medium",
+      "question": "What does list.append(x) do?",
+      "options": [
+        "Adds x to the end",
+        "Sorts the list",
+        "Adds x at index 0",
+        "Returns list length"
+      ],
+      "answer": "Adds x to the end",
+      "explanation": "append adds one item at the end of a list."
+    },
+    {
+      "id": "py5",
+      "difficulty": "Medium",
+      "question": "Which statement handles an exception?",
+      "options": [
+        "catch/throw",
+        "try/except",
+        "if/error",
+        "do/rescue"
+      ],
+      "answer": "try/except",
+      "explanation": "Python uses try and except blocks to handle exceptions."
+    },
+    {
+      "id": "py6",
+      "difficulty": "Hard",
+      "question": "What is the average time complexity of dictionary lookup?",
+      "options": [
+        "O(n)",
+        "O(log n)",
+        "O(1)",
+        "O(n log n)"
+      ],
+      "answer": "O(1)",
+      "explanation": "Hash-table lookups are O(1) on average, though worst cases can be slower."
+    },
+    {
+      "id": "py7",
+      "difficulty": "Hard",
+      "question": "What does a generator function use to yield values?",
+      "options": [
+        "return",
+        "yield",
+        "async",
+        "pass"
+      ],
+      "answer": "yield",
+      "explanation": "yield pauses a generator and produces a value while preserving its state."
+    },
+    {
+      "id": "py8",
+      "difficulty": "Easy",
+      "question": "Which symbol starts a single-line comment in Python?",
+      "options": [
+        "//",
+        "<!--",
+        "#",
+        ";"
+      ],
+      "answer": "#",
+      "explanation": "Python comments begin with the hash character."
+    },
+    {
+      "id": "py9",
+      "difficulty": "Medium",
+      "question": "Which collection stores unique values?",
+      "options": [
+        "list",
+        "tuple",
+        "set",
+        "string"
+      ],
+      "answer": "set",
+      "explanation": "A set stores distinct hashable values."
+    },
+    {
+      "id": "py10",
+      "difficulty": "Hard",
+      "question": "What is the purpose of __init__ in a class?",
+      "options": [
+        "Destroy an object",
+        "Initialize a new instance",
+        "Import a module",
+        "Print an object"
+      ],
+      "answer": "Initialize a new instance",
+      "explanation": "__init__ initializes instance attributes after an object is created."
+    }
+  ],
+  "cpp": [
+    {
+      "id": "cpp1",
+      "difficulty": "Easy",
+      "question": "Which operator accesses a member through an object pointer?",
+      "options": [
+        ".",
+        "::",
+        "->",
+        "&"
+      ],
+      "answer": "->",
+      "explanation": "The arrow operator accesses members through a pointer to an object."
+    },
+    {
+      "id": "cpp2",
+      "difficulty": "Easy",
+      "question": "Which header is commonly used for std::cout?",
+      "options": [
+        "<stdio.h>",
+        "<iostream>",
+        "<string>",
+        "<fstream>"
+      ],
+      "answer": "<iostream>",
+      "explanation": "The iostream header declares standard input and output streams."
+    },
+    {
+      "id": "cpp3",
+      "difficulty": "Medium",
+      "question": "Which feature lets functions share a name with different parameter lists?",
+      "options": [
+        "Overloading",
+        "Overriding",
+        "Casting",
+        "Templating only"
+      ],
+      "answer": "Overloading",
+      "explanation": "Function overloading provides multiple signatures under one function name."
+    },
+    {
+      "id": "cpp4",
+      "difficulty": "Hard",
+      "question": "Which smart pointer expresses exclusive ownership?",
+      "options": [
+        "shared_ptr",
+        "weak_ptr",
+        "unique_ptr",
+        "auto_ptr only"
+      ],
+      "answer": "unique_ptr",
+      "explanation": "unique_ptr represents exclusive ownership of a resource."
+    }
+  ],
+  "c": [
+    {
+      "id": "c1",
+      "difficulty": "Easy",
+      "question": "Which function is the usual entry point of a C program?",
+      "options": [
+        "start()",
+        "main()",
+        "run()",
+        "init()"
+      ],
+      "answer": "main()",
+      "explanation": "Execution of a hosted C program begins at main."
+    },
+    {
+      "id": "c2",
+      "difficulty": "Easy",
+      "question": "Which format specifier is commonly used for an int in printf?",
+      "options": [
+        "%c",
+        "%f",
+        "%d",
+        "%s"
+      ],
+      "answer": "%d",
+      "explanation": "%d formats an int as a signed decimal integer."
+    },
+    {
+      "id": "c3",
+      "difficulty": "Medium",
+      "question": "What does a pointer store?",
+      "options": [
+        "A memory address",
+        "Only a character",
+        "A loop count",
+        "A file name"
+      ],
+      "answer": "A memory address",
+      "explanation": "A pointer holds the address of an object or function."
+    },
+    {
+      "id": "c4",
+      "difficulty": "Hard",
+      "question": "Which function allocates uninitialized memory dynamically in C?",
+      "options": [
+        "calloc",
+        "malloc",
+        "free",
+        "memset"
+      ],
+      "answer": "malloc",
+      "explanation": "malloc allocates a block of memory without initializing its bytes."
+    }
+  ],
+  "html": [
+    {
+      "id": "html1",
+      "difficulty": "Easy",
+      "question": "What does HTML stand for?",
+      "options": [
+        "HyperText Markup Language",
+        "HighText Machine Language",
+        "Hyperlink Text Management Logic",
+        "Home Tool Markup Language"
+      ],
+      "answer": "HyperText Markup Language",
+      "explanation": "HTML is the standard markup language for structuring web content."
+    },
+    {
+      "id": "html2",
+      "difficulty": "Easy",
+      "question": "Which element creates a hyperlink?",
+      "options": [
+        "<link>",
+        "<a>",
+        "<href>",
+        "<url>"
+      ],
+      "answer": "<a>",
+      "explanation": "The anchor element uses href to point to a destination."
+    },
+    {
+      "id": "html3",
+      "difficulty": "Medium",
+      "question": "Which attribute provides alternative text for an image?",
+      "options": [
+        "title",
+        "src",
+        "alt",
+        "label"
+      ],
+      "answer": "alt",
+      "explanation": "alt text communicates an image's meaning when it cannot be seen."
+    },
+    {
+      "id": "html4",
+      "difficulty": "Hard",
+      "question": "Which element is intended for self-contained content that can stand alone?",
+      "options": [
+        "<span>",
+        "<article>",
+        "<b>",
+        "<br>"
+      ],
+      "answer": "<article>",
+      "explanation": "article represents independently distributable or reusable content."
+    }
+  ],
+  "css": [
+    {
+      "id": "css1",
+      "difficulty": "Easy",
+      "question": "Which CSS property changes text color?",
+      "options": [
+        "font-style",
+        "text-color",
+        "color",
+        "background"
+      ],
+      "answer": "color",
+      "explanation": "The color property sets an element's foreground text color."
+    },
+    {
+      "id": "css2",
+      "difficulty": "Easy",
+      "question": "Which selector targets an element with id='hero'?",
+      "options": [
+        ".hero",
+        "#hero",
+        "hero",
+        "*hero"
+      ],
+      "answer": "#hero",
+      "explanation": "An ID selector begins with #."
+    },
+    {
+      "id": "css3",
+      "difficulty": "Medium",
+      "question": "Which layout system is designed primarily for one-dimensional layouts?",
+      "options": [
+        "Flexbox",
+        "Grid",
+        "Float only",
+        "Position only"
+      ],
+      "answer": "Flexbox",
+      "explanation": "Flexbox handles layout along a row or a column."
+    },
+    {
+      "id": "css4",
+      "difficulty": "Hard",
+      "question": "Which unit is relative to the root element's font size?",
+      "options": [
+        "em",
+        "rem",
+        "vh",
+        "px"
+      ],
+      "answer": "rem",
+      "explanation": "rem is based on the root element's font size."
+    }
+  ],
+  "javascript": [
+    {
+      "id": "js1",
+      "difficulty": "Easy",
+      "question": "Which keyword declares a block-scoped variable that can be reassigned?",
+      "options": [
+        "const",
+        "let",
+        "static",
+        "define"
+      ],
+      "answer": "let",
+      "explanation": "let declares a block-scoped variable that may be reassigned."
+    },
+    {
+      "id": "js2",
+      "difficulty": "Easy",
+      "question": "Which method selects the first matching CSS selector?",
+      "options": [
+        "getAll()",
+        "querySelector()",
+        "selectOne()",
+        "findElement()"
+      ],
+      "answer": "querySelector()",
+      "explanation": "document.querySelector returns the first matching element."
+    },
+    {
+      "id": "js3",
+      "difficulty": "Medium",
+      "question": "What does JSON.parse() do?",
+      "options": [
+        "Converts an object to JSON text",
+        "Parses JSON text into a value",
+        "Sends a request",
+        "Formats a date"
+      ],
+      "answer": "Parses JSON text into a value",
+      "explanation": "JSON.parse converts valid JSON text into a JavaScript value."
+    },
+    {
+      "id": "js4",
+      "difficulty": "Hard",
+      "question": "What does Promise.all() do if one input promise rejects?",
+      "options": [
+        "Waits forever",
+        "Rejects with that rejection",
+        "Ignores the rejection",
+        "Retries automatically"
+      ],
+      "answer": "Rejects with that rejection",
+      "explanation": "Promise.all rejects as soon as one input rejects."
+    }
+  ],
+  "computer-systems": [
+    {
+      "id": "sys1",
+      "difficulty": "Easy",
+      "question": "Which component executes instructions?",
+      "options": [
+        "CPU",
+        "Monitor",
+        "Keyboard",
+        "Printer"
+      ],
+      "answer": "CPU",
+      "explanation": "The CPU fetches, decodes, and executes program instructions."
+    },
+    {
+      "id": "sys2",
+      "difficulty": "Easy",
+      "question": "Which memory is typically volatile?",
+      "options": [
+        "SSD",
+        "ROM",
+        "RAM",
+        "Blu-ray disc"
+      ],
+      "answer": "RAM",
+      "explanation": "RAM normally loses its contents when power is removed."
+    },
+    {
+      "id": "sys3",
+      "difficulty": "Medium",
+      "question": "What is the main purpose of a CPU cache?",
+      "options": [
+        "Long-term backup",
+        "Reduce average memory access time",
+        "Cool the CPU",
+        "Store user passwords"
+      ],
+      "answer": "Reduce average memory access time",
+      "explanation": "Cache keeps frequently used data closer to the CPU."
+    },
+    {
+      "id": "sys4",
+      "difficulty": "Hard",
+      "question": "How many bits are in a byte in modern conventional systems?",
+      "options": [
+        "4",
+        "8",
+        "16",
+        "32"
+      ],
+      "answer": "8",
+      "explanation": "A byte is conventionally defined as eight bits."
+    }
+  ],
+  "dsa": [
+    {
+      "id": "dsa1",
+      "difficulty": "Easy",
+      "question": "Which data structure follows FIFO order?",
+      "options": [
+        "Stack",
+        "Queue",
+        "Tree",
+        "Graph"
+      ],
+      "answer": "Queue",
+      "explanation": "A queue removes items in the order they were added."
+    },
+    {
+      "id": "dsa2",
+      "difficulty": "Easy",
+      "question": "What is the time complexity of binary search on a sorted array?",
+      "options": [
+        "O(n)",
+        "O(log n)",
+        "O(n²)",
+        "O(1) always"
+      ],
+      "answer": "O(log n)",
+      "explanation": "Binary search halves the remaining search interval at each step."
+    },
+    {
+      "id": "dsa3",
+      "difficulty": "Medium",
+      "question": "Which traversal visits left subtree, root, then right subtree in a binary tree?",
+      "options": [
+        "Preorder",
+        "Inorder",
+        "Postorder",
+        "Level order"
+      ],
+      "answer": "Inorder",
+      "explanation": "Inorder traversal follows left, root, right."
+    },
+    {
+      "id": "dsa4",
+      "difficulty": "Hard",
+      "question": "What is the average time complexity of quicksort?",
+      "options": [
+        "O(log n)",
+        "O(n)",
+        "O(n log n)",
+        "O(n²)"
+      ],
+      "answer": "O(n log n)",
+      "explanation": "Balanced partitions give average O(n log n); worst case is O(n²)."
+    }
+  ],
+  "general": [
+    {
+      "id": "gen1",
+      "difficulty": "Easy",
+      "question": "What does URL stand for?",
+      "options": [
+        "Uniform Resource Locator",
+        "Universal Record Link",
+        "User Reference Language",
+        "Unified Routing List"
+      ],
+      "answer": "Uniform Resource Locator",
+      "explanation": "A URL identifies the location of a resource on a network."
+    },
+    {
+      "id": "gen2",
+      "difficulty": "Easy",
+      "question": "Which number system uses only 0 and 1?",
+      "options": [
+        "Decimal",
+        "Octal",
+        "Binary",
+        "Hexadecimal"
+      ],
+      "answer": "Binary",
+      "explanation": "Binary is base 2 and uses digits 0 and 1."
+    },
+    {
+      "id": "gen3",
+      "difficulty": "Medium",
+      "question": "What is phishing?",
+      "options": [
+        "A database backup",
+        "A deceptive attempt to steal information",
+        "A compression method",
+        "A network cable type"
+      ],
+      "answer": "A deceptive attempt to steal information",
+      "explanation": "Phishing uses deceptive messages or sites to obtain sensitive information."
+    },
+    {
+      "id": "gen4",
+      "difficulty": "Hard",
+      "question": "Which protocol provides encrypted web communication?",
+      "options": [
+        "HTTP",
+        "FTP",
+        "HTTPS",
+        "Telnet"
+      ],
+      "answer": "HTTPS",
+      "explanation": "HTTPS uses TLS to protect HTTP communications in transit."
+    }
+  ]
+}

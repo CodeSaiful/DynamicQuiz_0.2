@@ -1,0 +1,107 @@
+{% extends 'base.html' %}{% block title %}Your results — QuizFlow{% endblock %}
+{% block content %}
+<section class="results-heading">
+  <div>
+    <div class="eyebrow">SESSION COMPLETE</div>
+    <h1>Your results</h1>
+    <p>{{ result.topic_name }} · {{ result.difficulty }}</p>
+  </div>
+  <div class="results-actions">
+    <a class="btn btn-outline" href="{{ url_for('index') }}#quiz-builder">Change settings</a>
+    <a class="btn btn-primary" href="{{ url_for('index') }}">↻ New quiz</a>
+  </div>
+</section>
+<section class="results-grid">
+  <div class="result-score-card">
+    <div class="score-ring" style="--score: {{ result.percentage }}">
+      <div>
+        <strong>{{ result.percentage }}%</strong>
+        <span>{{ result.correct }} of {{ result.total }} correct</span>
+      </div>
+    </div>
+    <h2 class="performance-message {% if result.percentage >= 70 %}good{% endif %}">{% if result.percentage >= 80 %}Excellent work!{% elif result.percentage >= 60 %}Nice progress!{% else %}Keep Practicing!{% endif %}</h2>
+    <p class="muted center">Every attempt is a chance to learn something new.</p>
+    <div class="result-counts">
+      <div class="count-correct">
+        <strong>{{ result.correct }}</strong>
+        <span>Correct</span>
+      </div>
+      <div class="count-incorrect">
+        <strong>{{ result.incorrect }}</strong>
+        <span>Incorrect</span>
+      </div>
+      <div class="count-skipped">
+        <strong>{{ result.unanswered }}</strong>
+        <span>Skipped</span>
+      </div>
+    </div>
+  </div>
+  <div class="summary-card">
+    <h2>Session summary</h2>
+    <div class="summary-metrics">
+      <div>
+        <span>Time taken</span>
+        <strong>{{ result.elapsed }}s</strong>
+      </div>
+      <div>
+        <span>Average per question</span>
+        <strong>{{ result.average }}s</strong>
+      </div>
+      <div>
+        <span>Questions answered</span>
+        <strong>{{ result.total-result.unanswered }} / {{ result.total }}</strong>
+      </div>
+      <div>
+        <span>Accuracy</span>
+        <strong>{{ result.percentage }}%</strong>
+      </div>
+    </div>
+    <div class="summary-actions">
+      <a class="btn btn-outline" href="{{ url_for('index') }}">↻ Retry quiz</a>
+      <a class="btn btn-outline" href="{{ url_for('history') }}">View history&nbsp; →</a>
+    </div>
+    <p class="small muted">This attempt has been saved in your browser session.</p>
+  </div>
+</section>
+<section class="review-section">
+  <div class="review-heading">
+    <div>
+      <h2>Answer review</h2>
+      <p>See what you know and what to revisit.</p>
+    </div>
+    <div class="filter-tabs" role="group" aria-label="Filter answers">
+      <button class="active" data-filter="All">All</button>
+      <button data-filter="Correct">Correct</button>
+      <button data-filter="Incorrect">Incorrect</button>
+      <button data-filter="Unanswered">Unanswered</button>
+    </div>
+  </div>
+  <div class="review-list">
+    {% for item in result.review %}
+    <article class="review-card" data-status="{{ item.status }}">
+      <div class="review-meta">
+        <span>Question {{ item.number }}</span>
+        <span class="tag purple-tag">{{ item.topic }}</span>
+        <span class="tag">{{ item.difficulty }}</span>
+        <b class="status-{{ item.status|lower }}">{{ item.status }}</b>
+      </div>
+      <h3>{{ item.question }}</h3>
+      <div class="answer-review-grid">
+        <div class="your-answer">
+          <span>Your answer</span>
+          <p>{{ item.your_answer if item.your_answer else 'No answer' }}</p>
+        </div>
+        <div class="correct-answer">
+          <span>Correct answer</span>
+          <p>{{ item.correct_answer }}</p>
+        </div>
+      </div>
+      <p class="explanation">{{ item.explanation }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/results.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends 'base.html' %}{% block title %}QuizFlow — Test your knowledge{% endblock %}
+{% block content %}
+<section class="hero-grid">
+  <div class="hero-copy">
+    <div class="eyebrow-pill">✧ &nbsp; A BETTER WAY TO PRACTICE</div>
+    <h1>Test your <span>knowledge.</span></h1>
+    <p class="hero-sub">Choose your topic, set your level, and challenge yourself. Build real confidence one question at a time.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-large" href="#quiz-builder">Start quiz&nbsp; →</a>
+      <a class="text-action" href="{{ url_for('about') }}">How it works&nbsp; →</a>
+    </div>
+    <div class="stat-row">
+      <div class="stat-card">
+        <strong>{{ session.get('history', [])|length }}</strong>
+        <span>Quizzes done</span>
+      </div>
+      <div class="stat-card">
+        <strong>12</strong>
+        <span>Topics to explore</span>
+      </div>
+      <div class="stat-card">
+        <strong>{% if session.get('history') %}{{ session.get('history')[0].percentage }}%{% else %}0%{% endif %}</strong>
+        <span>Personal best</span>
+      </div>
+    </div>
+  </div>
+  <aside class="preview-card">
+    <div class="preview-head">
+      <div>
+        <span class="muted-label">YOUR NEXT SESSION</span>
+        <h3>Computer science</h3>
+      </div>
+      <span class="code-icon">...</span>
+    </div>
+    <div class="preview-row"><span>Difficulty</span><b>Easy</b></div>
+    <div class="preview-row"><span>Questions</span><b>10 focused prompts</b></div>
+    <div class="streak-box">
+      <div><b>Practice streak</b><b>On your terms</b></div>
+      <div class="mini-bars">{% for h in [11,15,13,19,16,23,21,27,23,31] %}<i style="height: {{ h }}px"></i>{% endfor %}</div>
+    </div>
+    <p class="preview-foot">A curated built-in bank · ready whenever you are</p>
+  </aside>
+</section>
+<section id="quiz-builder" class="builder-section">
+  <div class="section-heading">
+    <div>
+      <div class="eyebrow">MAKE IT YOURS</div>
+      <h2>Build your quiz</h2>
+      <p>Pick a subject, then tune the challenge to suit you.</p>
+    </div>
+    <span class="no-signin">No sign-in required</span>
+  </div>
+  <form class="builder-card" action="{{ url_for('start_quiz') }}" method="post">
+    <div class="topic-head">
+      <h3>1. Choose a topic</h3>
+      <span>10 options</span>
+    </div>
+    <div class="topic-grid">
+      {% set topic_items = [('python','Py','Python'),('cpp','C+','C++'),('c','C','C Programming'),('computer-systems','SYS','Computer Systems'),('dsa','DSA','Data Structures & Algorithms'),('html','\u003c\u003e','HTML'),('css','#','CSS'),('javascript','JS','JavaScript'),('general','◎','General Computer Knowledge'),('mixed','✳','Mixed Topics')] %}
+      {% for key, icon, label in topic_items %}
+      <label class="topic-option">
+        <input type="radio" name="topic" value="{{ key }}" {% if loop.first %}checked{% endif %}>
+        <span class="topic-symbol">{{ icon }}</span>
+        <span>{{ label }}</span>
+      </label>
+      {% endfor %}
+    </div>
+    <div class="builder-divider"></div>
+    <div class="settings-grid">
+      <section>
+        <h3>2. Number of questions</h3>
+        <div class="choice-grid three">
+          {% for n in [10,15,30] %}
+          <label class="choice-card">
+            <input type="radio" name="count" value="{{n}}" {% if n==10 %}checked{% endif %}>
+            <strong>{{n}}</strong>
+            <span>questions</span>
+          </label>
+          {% endfor %}
+        </div>
+      </section>
+      <section>
+        <h3>3. Choose difficulty</h3>
+        <div class="choice-grid three difficulty-grid">
+          {% for d,desc in [('Easy','Core concepts'),('Medium','Practical thinking'),('Hard','Advanced reasoning')] %}
+          <label class="choice-card text-choice">
+            <input type="radio" name="difficulty" value="{{d}}" {% if d=='Easy' %}checked{% endif %}>
+            <strong>{{d}}</strong>
+            <span>{{desc}}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+    <div class="builder-divider"></div>
+    <div class="settings-grid timer-settings">
+      <section>
+        <h3>4. Time per question</h3>
+        <div class="choice-grid three">
+          {% for s in [15,30,60] %}
+          <label class="choice-card">
+            <input type="radio" name="seconds_per_question" value="{{s}}" {% if s==30 %}checked{% endif %}>
+            <strong>{{s}}s</strong>
+            <span>per question</span>
+          </label>
+          {% endfor %}
+        </div>
+      </section>
+      <div class="begin-panel">
+        <div>
+          <b>Estimated time</b>
+          <span id="estimated-time">About 5m 00s at this pace</span>
+        </div>
+        <button class="btn btn-primary btn-large" type="submit">Begin quiz&nbsp; →</button>
+      </div>
+    </div>
+  </form>
+</section>
+{% endblock %}

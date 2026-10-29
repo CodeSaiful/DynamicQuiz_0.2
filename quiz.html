@@ -1,0 +1,70 @@
+{% extends 'base.html' %}{% block title %}Quiz in progress — QuizFlow{% endblock %}
+{% block content %}
+<div class="quiz-topline">
+  <a href="{{ url_for('index') }}" class="text-action">← Exit quiz</a>
+  <div class="quiz-tags">
+    <span class="tag purple-tag">{{ topic_name }}</span>
+    <span class="tag">{{ quiz.difficulty }}</span>
+  </div>
+  <div class="timer-box">
+    ◷ <strong id="timer" data-deadline="{{ quiz.deadline }}">{{ quiz.count * quiz.seconds_per_question }}s</strong>
+  </div>
+</div>
+<div class="question-progress">
+  <div>
+    <b id="question-label">Question 1</b>
+    <span>of {{ quiz.count }}</span>
+  </div>
+  <div class="progress-track">
+    <i id="progress-fill" style="width: {{ 100/quiz.count }}%"></i>
+  </div>
+</div>
+<div class="quiz-layout">
+  <section class="question-card">
+    <div class="question-topic" id="question-topic">{{ topic_name }}</div>
+    <h1 id="question-text">{{ questions[0].question }}</h1>
+    <div id="answer-options" class="answer-options">
+      {% for option in questions[0].options %}
+      <button class="answer-option" type="button" data-answer="{{ option }}">
+        <span class="answer-letter">{{ 'ABCD'[loop.index0] }}</span>
+        <span>{{ option }}</span>
+      </button>
+      {% endfor %}
+    </div>
+    <div class="quiz-controls">
+      <button id="prev-btn" class="btn btn-outline" type="button" disabled>← Previous</button>
+      <span id="save-status">Your choices are saved as you go.</span>
+      <button id="next-btn" class="btn btn-primary" type="button">Next question&nbsp; →</button>
+    </div>
+  </section>
+  <aside class="question-sidebar">
+    <div class="sidebar-heading">
+      <h3>Questions</h3>
+      <span id="answered-count">0/{{ quiz.count }}</span>
+    </div>
+    <div class="question-numbers" id="question-numbers">
+      {% for q in questions %}
+      <button type="button" data-index="{{ loop.index0 }}" class="question-number {% if loop.first %}current{% endif %}">{{ loop.index }}</button>
+      {% endfor %}
+    </div>
+    <p>Your choices are saved as you go. You can move between questions at any time.</p>
+    <button id="submit-btn" class="btn btn-outline full-width" type="button">Submit quiz</button>
+  </aside>
+</div>
+<div class="modal-backdrop" id="submit-modal" hidden>
+  <div class="modal-card">
+    <h3>Submit your quiz?</h3>
+    <p id="submit-message">You can still go back and check your answers.</p>
+    <div class="modal-actions">
+      <button class="btn btn-outline" id="cancel-submit" type="button">Keep reviewing</button>
+      <form action="{{ url_for('submit_quiz') }}" method="post">
+        <button class="btn btn-primary" type="submit">Finish quiz</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script id="quiz-data" type="application/json">{{ {'questions': questions, 'topic': topic_name, 'count': quiz.count, 'secondsPerQuestion': quiz.seconds_per_question, 'answers': quiz.answers}|tojson }}</script>
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+{% endblock %}

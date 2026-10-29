@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}About QuizFlow{% endblock %}
+{% block content %}
+<section class="simple-page">
+  <div class="eyebrow">ABOUT QUIZFLOW</div>
+  <h1>Practice that fits your pace.</h1>
+  <p class="hero-sub">QuizFlow is a simple practice space for computer science students. Pick a topic, set a difficulty and time limit, then learn from your results.</p>
+  <div class="about-grid">
+    <article>
+      <span class="about-icon">✦</span>
+      <h2>Choose your challenge</h2>
+      <p>Select a topic and question count, then tune the difficulty to match your learning goals.</p>
+    </article>
+    <article>
+      <span class="about-icon">◷</span>
+      <h2>Stay focused</h2>
+      <p>A per-question timer and clear progress indicators help you practice with intention.</p>
+    </article>
+    <article>
+      <span class="about-icon">↗</span>
+      <h2>Learn from results</h2>
+      <p>Review correct answers and short explanations after every session.</p>
+    </article>
+  </div>
+  <a class="btn btn-primary btn-large" href="{{ url_for('index') }}#quiz-builder">Build your quiz →</a>
+</section>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Quiz history — QuizFlow{% endblock %}
+{% block content %}
+<section class="simple-page">
+  <div class="eyebrow">YOUR PROGRESS</div>
+  <h1>Quiz history</h1>
+  <p class="hero-sub">A quick look at your recent practice sessions.</p>
+  {% if history %}
+  <div class="history-list">
+    {% for item in history %}
+    <article class="history-row">
+      <div>
+        <h3>{{ item.topic_name }} <span class="tag">{{ item.difficulty }}</span></h3>
+        <p>{{ item.correct }} / {{ item.total }} correct · {{ item.elapsed }} seconds</p>
+      </div>
+      <strong>{{ item.percentage }}%</strong>
+    </article>
+    {% endfor %}
+  </div>
+  <form action="{{ url_for('clear_history') }}" method="post" class="clear-history">
+    <button class="btn btn-outline" type="submit">Clear history</button>
+  </form>
+  {% else %}
+  <div class="empty-state">
+    <span class="empty-icon">◷</span>
+    <h2>No quizzes yet</h2>
+    <p>Your completed sessions will appear here.</p>
+    <a class="btn btn-primary" href="{{ url_for('index') }}#quiz-builder">Start your first quiz →</a>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}
